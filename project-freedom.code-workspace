@@ -1,0 +1,17 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "editor.tabSize": 2,
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.wxt": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.wxt": true,
+      "**/.output": true,
+      "**/playwright-report": true,
+      "**/test-results": true
+    }
+  }
+}

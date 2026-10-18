@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-17",
+  "version": "0.0.4",
+  "releaseStatus": "blocked",
+  "installedChrome": {
+    "version": "0.0.4",
+    "checks": {
+      "freshAllOff": true,
+      "nativeOptionsZoom": true,
+      "nativePopupKeyboardAndScrolling": true,
+      "sameProfileRestart": true,
+      "masterOffWithoutReload": true,
+      "reset": true
+    },
+    "mode": "installed Chrome, isolated profile, headless; native browser APIs, no physical toolbar click or VoiceOver",
+    "browser": "155.0.8059.85",
+    "zoom": {
+      "factor": 2,
+      "cssWidth": 550,
+      "rootFont": "14px",
+      "devicePixelRatio": 2,
+      "horizontalOverflow": false
+    },
+    "popup": {
+      "width": 209,
+      "height": 498,
+      "dpr": 1,
+      "checkboxes": 4,
+      "overflowX": false,
+      "scrollHeight": 959
+    },
+    "debugLoadEachLaunch": true
+  },
+  "liveChromium": "156.0.8078.4",
+  "liveSpa": {
+    "status": "passed",
+    "searchSameDocument": true,
+    "watchSameDocument": true,
+    "ordinaryBefore": 3,
+    "ordinaryAfter": 3,
+    "backForward": true
+  },
+  "publicPlaylist": {
+    "distinct": true,
+    "panelVisible": true,
+    "secondSelected": true,
+    "returnedFirst": true,
+    "nextButton": true,
+    "previousButton": true
+  },
+  "directShorts": {
+    "normalPlayControl": true,
+    "playbackAdvanced": true,
+    "backToSearch": true
+  },
+  "spanish": {
+    "documentLanguage": "es-ES",
+    "localizedSettingsLabel": "Configuraci\u00f3n",
+    "searchButtonTitle": "Buscar",
+    "viewport": "800x900",
+    "shelfHideRestore": true,
+    "ordinaryBefore": 2,
+    "ordinaryAfter": 2
+  },
+  "captions": {
+    "status": "unverified",
+    "mainVideoPlaying": true,
+    "observedMainTime": 40.661191,
+    "advertisingShowing": false,
+    "captionOverlayVisible": true,
+    "renderedTextLength": 0,
+    "captionResponseStatusCodes": [
+      200
+    ],
+    "watchRuleActive": true,
+    "conclusion": "Track/menu/request success is not rendered-caption evidence. Cause not attributed to the extension; requires manual on/off verification."
+  },
+  "runtimeChanges": false,
+  "permissionsChanged": false,
+  "dependenciesChanged": false,
+  "newTool": "app/scripts/check-installed-chrome.mjs; npm run check:chrome",
+  "rerunChecks": [
+    "installed Chrome native UI/zoom/persistence/recovery",
+    "typecheck",
+    "lint",
+    "format:check",
+    "check:artifact",
+    "check:package"
+  ],
+  "earlierRegressionRecord": "50 unit/DOM + 9 manifest + 6 Chromium tests remain in PHASE3_EVIDENCE.json, not relabeled as new runs",
+  "packageSha256": "787d63d8faff54bdefb05c06499e1d45050bdaad9a65db7346073635d532f192",
+  "remaining": [
+    "VoiceOver listening/announcements",
+    "populated home and signed-in subscriptions in an authorized test profile",
+    "visible caption rendering, compared on/off",
+    "physical installation/toolbar click and popup zoom workflow",
+    "additional safety/consent variants",
+    "publisher/license/name/contact/audience decisions"
+  ],
+  "privacy": "Only public aggregate test metadata and this extension UI retained; no personal accounts, histories, titles, caption text, or cookies."
+}

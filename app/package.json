@@ -1,0 +1,54 @@
+{
+  "name": "project-freedom",
+  "description": "Choose which YouTube discovery sections you see, using local preferences and reversible controls.",
+  "private": true,
+  "version": "0.0.4",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check:manifest": "node scripts/check-manifest.mjs",
+    "test:manifest": "node --test scripts/manifest-contract.test.mjs",
+    "check:artifact": "node scripts/check-artifact.mjs",
+    "check:package": "python3 scripts/check-package.py",
+    "check:chrome": "node scripts/check-installed-chrome.mjs",
+    "check:live-captions": "node scripts/check-live-captions.mjs"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "npm@11.11.0",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@wxt-dev/module-react": "^1.1.5",
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "happy-dom": "^21.0.3",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.5",
+    "wxt": "^0.21.4"
+  }
+}

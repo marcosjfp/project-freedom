@@ -1,0 +1,36 @@
+.DS_Store
+**/node_modules/
+**/.wxt/
+**/.output/
+**/coverage/
+**/playwright-report/
+**/test-results/
+**/.test-profiles/
+**/web-ext.config.ts
+**/.env
+**/.env.*
+!**/.env.example
+*.log
+
+# Original planning and handover: keep local, do not add to new commits.
+# Active documentation, Codex instructions and docs/evidence/ remain tracked.
+/planning/
+/reference-material/
+/sources/
+/PROJECT_BRIEF.md
+/DELIVERY_NOTES.md
+/PACKAGE_MANIFEST.json
+/IMPORT_THIS_BUNDLE.md
+/SOURCE_BUNDLE_MANIFEST.json
+/docs/IMPLEMENTATION_PLAN.md
+/docs/DECISIONS_AND_STATUS.md
+/docs/RESEARCH_AND_SOURCES.md
+/docs/MACOS_SETUP.md
+/docs/TEST_PLAN.md
+/docs/PHASE*.md
+/docs/PHASE*_EVIDENCE.json
+/docs/phase0-smoke-results.json
+/docs/images/phase*.png
+
+# Local exported archives are generated artifacts, not source.
+/*.zip

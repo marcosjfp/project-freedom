@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:," />
+    <title>Synthetic YouTube structure — Project Freedom tests</title>
+    <style>
+      body {
+        margin: 20px;
+        font: 15px/1.5 system-ui;
+      }
+      ytd-app,
+      ytd-masthead,
+      ytd-page-manager,
+      ytd-browse,
+      ytd-search,
+      ytd-rich-grid-renderer,
+      ytd-rich-item-renderer,
+      ytd-rich-section-renderer,
+      ytd-guide-entry-renderer,
+      ytd-mini-guide-entry-renderer,
+      ytd-reel-shelf-renderer,
+      ytd-rich-shelf-renderer,
+      grid-shelf-view-model,
+      ytm-shorts-lockup-view-model,
+      ytd-watch-flexy,
+      ytd-watch-next-secondary-results-renderer,
+      ytd-item-section-renderer,
+      yt-lockup-view-model,
+      ytd-compact-video-renderer,
+      ytd-compact-playlist-renderer,
+      ytd-playlist-panel-renderer,
+      ytd-playlist-panel-video-renderer,
+      ytd-video-renderer {
+        display: block;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      [data-card] {
+        padding: 8px;
+        margin: 6px 0;
+        border: 1px solid #abc;
+      }
+      video {
+        width: 300px;
+        height: 140px;
+        background: #234;
+      }
+    </style>
+  </head>
+  <body>
+    <ytd-app>
+      <ytd-masthead
+        ><label>Search <input aria-label="Search" /></label
+      ></ytd-masthead>
+      <nav>
+        <ytd-guide-entry-renderer data-testid="shorts-guide"
+          ><a href="/shorts/">Shorts discovery</a></ytd-guide-entry-renderer
+        >
+        <ytd-mini-guide-entry-renderer data-testid="shorts-mini-guide"
+          ><a href="/shorts"
+            >Shorts mini guide</a
+          ></ytd-mini-guide-entry-renderer
+        >
+        <ytd-guide-entry-renderer data-testid="unknown-guide"
+          ><a role="link">Unknown linkless item</a></ytd-guide-entry-renderer
+        >
+        <a href="/feed/subscriptions" data-testid="subscriptions-link"
+          >Subscriptions</a
+        >
+      </nav>
+      <div role="dialog" data-testid="consent">
+        Synthetic consent controls <button>Consent choice</button>
+      </div>
+      <ytd-page-manager>
+        <ytd-browse page-subtype="home" data-route="home">
+          <ytd-rich-grid-renderer>
+            <div id="header">Home heading</div>
+            <div id="contents">
+              <ytd-rich-item-renderer
+                data-testid="home-card"
+                data-card
+                style="display: grid"
+                ><yt-lockup-view-model
+                  >Suggested home item</yt-lockup-view-model
+                ></ytd-rich-item-renderer
+              >
+              <ytd-rich-section-renderer data-testid="home-section" data-card
+                ><ytd-rich-shelf-renderer is-shorts
+                  ><a href="/shorts/example"
+                    >Shorts section</a
+                  ></ytd-rich-shelf-renderer
+                ></ytd-rich-section-renderer
+              >
+              <ytd-rich-item-renderer data-testid="home-safety"
+                ><div role="dialog">
+                  Synthetic safety notice <button>Review</button>
+                </div></ytd-rich-item-renderer
+              >
+            </div>
+          </ytd-rich-grid-renderer>
+        </ytd-browse>
+        <ytd-search data-route="search" hidden>
+          <ytd-video-renderer data-testid="search-video" data-card
+            ><a href="/watch?v=chosen"
+              >Deliberate search result</a
+            ></ytd-video-renderer
+          >
+          <ytd-video-renderer data-testid="search-short-result" data-card
+            ><a href="/shorts/chosen"
+              >Individually returned short video</a
+            ></ytd-video-renderer
+          >
+          <ytd-item-section-renderer
+            ><div id="contents">
+              <grid-shelf-view-model data-testid="search-shorts" data-card
+                ><ytm-shorts-lockup-view-model-v2
+                  ><ytm-shorts-lockup-view-model
+                    ><a href="/shorts/discovery"
+                      >Shorts shelf</a
+                    ></ytm-shorts-lockup-view-model
+                  ></ytm-shorts-lockup-view-model-v2
+                ></grid-shelf-view-model
+              >
+              <ytd-reel-shelf-renderer data-testid="legacy-shorts" data-card
+                >Legacy Shorts shelf</ytd-reel-shelf-renderer
+              >
+              <grid-shelf-view-model data-testid="mixed-shelf" data-card
+                ><ytm-shorts-lockup-view-model
+                  >Short item</ytm-shorts-lockup-view-model
+                ><ytd-video-renderer
+                  >Ordinary item in mixed shelf</ytd-video-renderer
+                ></grid-shelf-view-model
+              >
+            </div></ytd-item-section-renderer
+          >
+        </ytd-search>
+        <ytd-watch-flexy data-route="watch" hidden>
+          <div id="movie_player" data-testid="player">
+            <video data-testid="video"></video>
+            <button data-testid="play" aria-label="Play selected video">
+              Play
+            </button>
+            <button data-testid="captions">Captions</button>
+            <button data-testid="fullscreen">Fullscreen</button>
+          </div>
+          <div id="secondary">
+            <ytd-playlist-panel-renderer
+              id="playlist"
+              data-testid="playlist"
+              data-card
+            >
+              <ytd-playlist-panel-video-renderer
+                >Selected playlist item</ytd-playlist-panel-video-renderer
+              >
+              <button data-testid="playlist-next">Next in playlist</button>
+            </ytd-playlist-panel-renderer>
+            <div id="related">
+              <ytd-watch-next-secondary-results-renderer
+                ><div id="items">
+                  <ytd-item-section-renderer
+                    ><div id="contents">
+                      <yt-lockup-view-model data-testid="watch-card" data-card
+                        >Modern watch suggestion</yt-lockup-view-model
+                      >
+                      <ytd-compact-video-renderer
+                        data-testid="legacy-watch-card"
+                        data-card
+                        >Legacy watch suggestion</ytd-compact-video-renderer
+                      >
+                      <ytd-compact-playlist-renderer
+                        data-testid="playlist-suggestion"
+                        data-card
+                        >Recommended playlist
+                        card</ytd-compact-playlist-renderer
+                      >
+                      <ytd-playlist-panel-renderer data-testid="nested-playlist"
+                        ><yt-lockup-view-model
+                          data-testid="nested-playlist-item"
+                          >Explicit playlist in an alternate
+                          placement</yt-lockup-view-model
+                        ></ytd-playlist-panel-renderer
+                      >
+                      <yt-lockup-view-model data-testid="watch-safety"
+                        ><div role="dialog">
+                          Synthetic safety controls
+                        </div></yt-lockup-view-model
+                      >
+                      <grid-shelf-view-model
+                        data-testid="watch-shorts"
+                        data-card
+                        ><ytm-shorts-lockup-view-model
+                          >Shorts watch shelf</ytm-shorts-lockup-view-model
+                        ></grid-shelf-view-model
+                      >
+                    </div></ytd-item-section-renderer
+                  >
+                </div></ytd-watch-next-secondary-results-renderer
+              >
+            </div>
+          </div>
+          <div data-testid="comments">Comments</div>
+        </ytd-watch-flexy>
+        <ytd-browse
+          page-subtype="subscriptions"
+          data-route="subscriptions"
+          hidden
+        >
+          <ytd-rich-grid-renderer
+            ><div id="contents">
+              <ytd-rich-item-renderer data-testid="subscription-video" data-card
+                >Deliberately followed channel</ytd-rich-item-renderer
+              >
+              <ytd-rich-shelf-renderer
+                is-shorts
+                data-testid="subscription-shorts"
+                data-card
+                >Subscriptions Shorts shelf</ytd-rich-shelf-renderer
+              >
+            </div></ytd-rich-grid-renderer
+          >
+        </ytd-browse>
+        <div data-route="shorts" hidden>
+          <video data-testid="shorts-player"></video
+          ><a href="/" data-testid="shorts-exit">Leave Shorts</a>
+        </div>
+        <div data-route="unsupported" hidden>
+          <yt-lockup-view-model data-testid="unknown-content" data-card
+            >Unknown layout</yt-lockup-view-model
+          >
+        </div>
+      </ytd-page-manager>
+    </ytd-app>
+    <script>
+      // Host-page behavior only; this fixture has no access to extension APIs.
+      function showRoute() {
+        const p = location.pathname;
+        const route =
+          p === '/'
+            ? 'home'
+            : p === '/results'
+              ? 'search'
+              : p === '/watch'
+                ? 'watch'
+                : p === '/feed/subscriptions'
+                  ? 'subscriptions'
+                  : p.startsWith('/shorts/')
+                    ? 'shorts'
+                    : 'unsupported';
+        document.querySelectorAll('[data-route]').forEach((element) => {
+          element.hidden = element.dataset.route !== route;
+        });
+      }
+      showRoute();
+      window.addEventListener('popstate', showRoute);
+      document.querySelectorAll('button[data-testid]').forEach((button) => {
+        button.addEventListener('click', () => {
+          button.dataset.activated = 'true';
+        });
+      });
+    </script>
+  </body>
+</html>

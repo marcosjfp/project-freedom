@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Freedom: dev",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/app" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Freedom: build",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/app" },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Freedom: typecheck",
+      "type": "shell",
+      "command": "npm run typecheck",
+      "options": { "cwd": "${workspaceFolder}/app" },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Freedom: unit tests",
+      "type": "shell",
+      "command": "npm run test",
+      "options": { "cwd": "${workspaceFolder}/app" },
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Freedom: extension E2E (after build)",
+      "type": "shell",
+      "command": "npm run test:e2e",
+      "options": { "cwd": "${workspaceFolder}/app" },
+      "problemMatcher": [],
+      "group": "test"
+    }
+  ]
+}

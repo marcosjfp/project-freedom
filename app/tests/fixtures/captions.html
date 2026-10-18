@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:," />
+    <title>Authored media/caption preservation fixture</title>
+    <style>
+      body {
+        font: 16px/1.5 system-ui;
+        margin: 24px;
+      }
+      ytd-app,
+      ytd-watch-flexy,
+      ytd-watch-next-secondary-results-renderer,
+      yt-lockup-view-model {
+        display: block;
+      }
+      #movie_player {
+        width: 440px;
+        background: #14253b;
+        color: white;
+        padding: 16px;
+      }
+      video {
+        display: block;
+        width: 420px;
+        height: 140px;
+      }
+      .ytp-caption-window-container {
+        min-height: 32px;
+        padding: 12px;
+      }
+      button {
+        font: inherit;
+        margin: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Authored caption test, not live YouTube</h1>
+    <ytd-app>
+      <ytd-watch-flexy>
+        <div id="movie_player">
+          <video controls loop preload="auto" src="/fixture.wav">
+            <track
+              kind="captions"
+              srclang="en"
+              label="Authored English"
+              src="/fixture.vtt"
+            />
+          </video>
+          <button id="play">Play authored media</button>
+          <button id="captions" aria-pressed="false">Authored captions</button>
+          <div class="ytp-caption-window-container" aria-live="off"></div>
+        </div>
+        <div id="related">
+          <ytd-watch-next-secondary-results-renderer>
+            <div id="items">
+              <yt-lockup-view-model data-testid="recommendation"
+                >Authored recommendation</yt-lockup-view-model
+              >
+              <yt-lockup-view-model data-testid="safety">
+                <div role="dialog" aria-label="Authored safety notice">
+                  <button>Review notice</button>
+                </div>
+              </yt-lockup-view-model>
+            </div>
+          </ytd-watch-next-secondary-results-renderer>
+        </div>
+      </ytd-watch-flexy>
+    </ytd-app>
+    <script>
+      // Authored host-player behavior. The extension never reads or changes media/track state.
+      const video = document.querySelector('video');
+      const track = video.textTracks[0];
+      const captions = document.querySelector('#captions');
+      const overlay = document.querySelector('.ytp-caption-window-container');
+      function renderCue() {
+        overlay.replaceChildren();
+        if (captions.getAttribute('aria-pressed') !== 'true') return;
+        for (const cue of track.activeCues ?? []) {
+          const segment = document.createElement('span');
+          segment.className = 'ytp-caption-segment';
+          segment.textContent = cue.text;
+          overlay.append(segment);
+        }
+      }
+      track.addEventListener('cuechange', renderCue);
+      document
+        .querySelector('#play')
+        .addEventListener('click', () => video.play());
+      captions.addEventListener('click', () => {
+        const on = captions.getAttribute('aria-pressed') !== 'true';
+        captions.setAttribute('aria-pressed', String(on));
+        // Like a custom web player, use native WebVTT timing and render an HTML overlay.
+        track.mode = on ? 'hidden' : 'disabled';
+        renderCue();
+      });
+    </script>
+  </body>
+</html>

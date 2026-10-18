@@ -1,0 +1,452 @@
+{
+  "date": "2026-10-18",
+  "version": "0.0.4",
+  "releaseVerdict": "blocked",
+  "scope": "fresh autonomous qualification; no personal account/profile access, publication, licensing decision or Phase 4",
+  "environment": {
+    "node": "v24.14.1",
+    "architecture": "arm64",
+    "platform": "darwin",
+    "chromium": "156.0.8078.4",
+    "installedChrome": "155.0.8059.85"
+  },
+  "regressions": {
+    "unitDom": {
+      "passed": 50,
+      "files": 5
+    },
+    "manifestContract": {
+      "passed": 9
+    },
+    "browser": {
+      "passed": 7,
+      "cases": [
+        {
+          "title": "settings support keyboard operation, reflow, focus restoration, and automated accessibility checks",
+          "status": "passed",
+          "durationMs": 3453,
+          "observations": {
+            "accessibility-summary": {
+              "scans": {
+                "popup": {
+                  "violations": 0,
+                  "incomplete": [],
+                  "passes": 34
+                },
+                "confirmReset": {
+                  "violations": 0,
+                  "incomplete": [],
+                  "passes": 34
+                },
+                "options": {
+                  "violations": 0,
+                  "incomplete": [],
+                  "passes": 34
+                },
+                "unsupported": {
+                  "violations": 0,
+                  "incomplete": [],
+                  "passes": 34
+                }
+              },
+              "keyboard": "passed",
+              "textSizing": "200% root text, 320 CSS px viewport",
+              "voiceOver": "not tested",
+              "browserChromeZoom": "not tested"
+            }
+          }
+        },
+        {
+          "title": "watch hiding preserves actual media playback and authored WebVTT captions through master changes",
+          "status": "passed",
+          "durationMs": 2656,
+          "observations": {
+            "authored-caption-evidence": {
+              "scope": "controlled authored fixture, not live compatibility",
+              "states": [
+                {
+                  "masterEnabled": false,
+                  "paused": false,
+                  "trackMode": "hidden",
+                  "activeCues": 1,
+                  "source": "/fixture.wav",
+                  "time": 0.430503
+                },
+                {
+                  "masterEnabled": true,
+                  "paused": false,
+                  "trackMode": "hidden",
+                  "activeCues": 1,
+                  "source": "/fixture.wav",
+                  "time": 0.840185
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "browser disabling and re-enabling recover after the documented tab reload",
+          "status": "passed",
+          "durationMs": 1317,
+          "observations": {
+            "lifecycle-summary": {
+              "stylePresentImmediatelyAfterDisable": true,
+              "disabledTabReloadRestoredPage": true,
+              "reenabledTabReloadRestoredSavedChoice": true,
+              "masterOffWithoutReload": true
+            }
+          }
+        },
+        {
+          "title": "ten SPA transitions and a long feed stay bounded and idle work stops",
+          "status": "passed",
+          "durationMs": 2621,
+          "observations": {
+            "performance-summary": {
+              "browser": "156.0.8078.4",
+              "viewport": "1280x900",
+              "transitions": 10,
+              "insertedCards": 1000,
+              "samples": [
+                {
+                  "action": "initial-load",
+                  "pageScriptMs": 1.38,
+                  "styleLayoutMs": 3.87,
+                  "taskMs": 17.122000000000003,
+                  "elapsedMs": 30.27350000000115
+                },
+                {
+                  "action": "route-search",
+                  "pageScriptMs": 0.1950000000000001,
+                  "styleLayoutMs": 0,
+                  "taskMs": 1.686,
+                  "elapsedMs": 5.65533300000061
+                },
+                {
+                  "action": "route-watch",
+                  "pageScriptMs": 0.02399999999999993,
+                  "styleLayoutMs": 1.1769999999999998,
+                  "taskMs": 2.319999999999999,
+                  "elapsedMs": 5.758540999999241
+                },
+                {
+                  "action": "route-subscriptions",
+                  "pageScriptMs": 0.051000000000000045,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.46800000000000314,
+                  "elapsedMs": 3.5322909999995318
+                },
+                {
+                  "action": "route-shorts",
+                  "pageScriptMs": 0.059000000000000025,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.4560000000000015,
+                  "elapsedMs": 4.6859170000007
+                },
+                {
+                  "action": "route-home",
+                  "pageScriptMs": 0.03300000000000004,
+                  "styleLayoutMs": 0.174,
+                  "taskMs": 0.8079999999999997,
+                  "elapsedMs": 3.461749999998574
+                },
+                {
+                  "action": "route-search",
+                  "pageScriptMs": 0.028000000000000032,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.3709999999999998,
+                  "elapsedMs": 3.394333000000188
+                },
+                {
+                  "action": "route-watch",
+                  "pageScriptMs": 0.021999999999999884,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.3160000000000003,
+                  "elapsedMs": 2.9582920000011654
+                },
+                {
+                  "action": "route-subscriptions",
+                  "pageScriptMs": 0.020000000000000052,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.2739999999999999,
+                  "elapsedMs": 2.67712500000016
+                },
+                {
+                  "action": "route-shorts",
+                  "pageScriptMs": 0.020000000000000052,
+                  "styleLayoutMs": 0,
+                  "taskMs": 0.27599999999999847,
+                  "elapsedMs": 2.6982910000006086
+                },
+                {
+                  "action": "route-home",
+                  "pageScriptMs": 0.02099999999999997,
+                  "styleLayoutMs": 0.042999999999999636,
+                  "taskMs": 0.44399999999999995,
+                  "elapsedMs": 4.355833000001439
+                },
+                {
+                  "action": "insert-1000-home-cards",
+                  "pageScriptMs": 0,
+                  "styleLayoutMs": 2.007,
+                  "taskMs": 6.815000000000001,
+                  "elapsedMs": 8.063666000000012
+                },
+                {
+                  "action": "master-off-long-feed",
+                  "pageScriptMs": 0.14500000000000016,
+                  "styleLayoutMs": 2.3360000000000003,
+                  "taskMs": 6.731000000000001,
+                  "elapsedMs": 34.768958000000566
+                },
+                {
+                  "action": "master-on-long-feed",
+                  "pageScriptMs": 0.11699999999999991,
+                  "styleLayoutMs": 5.122,
+                  "taskMs": 10.972999999999997,
+                  "elapsedMs": 49.45904100000007
+                }
+              ],
+              "maximumPageScriptMs": 1.38,
+              "idleWindowMs": 1500,
+              "idleScriptMs": 0,
+              "extensionFunctionCallCount": 1,
+              "maximumExtensionFunctionCallMs": 0.039,
+              "lifecycle": {
+                "before": 28,
+                "after": 28,
+                "heapBeforeBytes": 1716704,
+                "heapAfterBytes": 1880804
+              },
+              "scope": "synthetic fixture; whole-page CDP metrics include host/test code; trace contains only synthetic content"
+            }
+          }
+        },
+        {
+          "title": "production controls stay local during online and offline fixture use",
+          "status": "passed",
+          "durationMs": 2468,
+          "observations": {
+            "privacy-summary": {
+              "requests": [
+                {
+                  "url": "https://www.youtube.com/",
+                  "type": "Document",
+                  "initiator": "other",
+                  "extensionStack": false
+                }
+              ],
+              "unexpected": [],
+              "sockets": [],
+              "storageKeysBeforeReset": [
+                "pf.enabled",
+                "pf.schemaVersion",
+                "pf.youtube.hideHomeRecommendations",
+                "pf.youtube.hideShortsDiscovery",
+                "pf.youtube.hideWatchRecommendations"
+              ],
+              "localAfterReset": {},
+              "sync": {},
+              "session": {},
+              "extensionLocalStorage": 0,
+              "extensionIndexedDB": [],
+              "masterOffUpperBoundMs": 49.15845799999988,
+              "offlineControls": "passed"
+            }
+          }
+        },
+        {
+          "title": "local choices sync, survive restart, recover, and reset without touching unrelated storage",
+          "status": "passed",
+          "durationMs": 3711,
+          "observations": {}
+        },
+        {
+          "title": "production content script hides only selected discovery surfaces and reverses cleanly",
+          "status": "passed",
+          "durationMs": 1857,
+          "observations": {}
+        }
+      ]
+    },
+    "totalCasesPassed": 66
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "format": "passed",
+    "build": "passed",
+    "exactManifest": "passed",
+    "artifact": "passed",
+    "zipByteComparison": "passed",
+    "fullNpmAudit": {
+      "reportedVulnerabilities": 0,
+      "dependencyMutation": false
+    }
+  },
+  "nativeChrome": {
+    "version": "0.0.4",
+    "checks": {
+      "freshAllOff": true,
+      "nativeOptionsZoom": true,
+      "nativePopupKeyboardAndScrolling": true,
+      "sameProfileRestart": true,
+      "masterOffWithoutReload": true,
+      "reset": true
+    },
+    "mode": "installed Chrome, isolated profile, headless; native browser APIs, no physical toolbar click or VoiceOver",
+    "browser": "155.0.8059.85",
+    "zoom": {
+      "factor": 2,
+      "cssWidth": 550,
+      "rootFont": "14px",
+      "devicePixelRatio": 2,
+      "horizontalOverflow": false
+    },
+    "popup": {
+      "width": 209,
+      "height": 498,
+      "dpr": 1,
+      "checkboxes": 4,
+      "overflowX": false,
+      "scrollHeight": 959
+    },
+    "debugLoadEachLaunch": true
+  },
+  "liveCaptionSmoke": {
+    "exitCode": 2,
+    "result": {
+      "version": "0.0.4",
+      "mode": "installed Chrome, headless, isolated signed-out profile; public video, no personal data",
+      "videoId": "iG9CE55wbtY",
+      "responses": [
+        {
+          "status": 200,
+          "contentType": "text/html; charset=UTF-8",
+          "bytes": 0
+        }
+      ],
+      "states": [
+        {
+          "masterEnabled": false,
+          "rendered": false,
+          "time": 10.3579,
+          "paused": false,
+          "ad": false,
+          "ccPressed": "true",
+          "captionTextLength": 0,
+          "watchRuleActive": false,
+          "stylePresent": false
+        },
+        {
+          "masterEnabled": true,
+          "rendered": false,
+          "time": 15.413001,
+          "paused": false,
+          "ad": false,
+          "ccPressed": "true",
+          "captionTextLength": 0,
+          "watchRuleActive": true,
+          "stylePresent": true
+        }
+      ],
+      "offeredSkipsUsed": 0,
+      "verdict": "unverified",
+      "browser": "155.0.8059.85",
+      "consentRejected": true
+    },
+    "interpretation": "unverified: empty subtitle response and no rendered captions in playing master-off baseline without stylesheet, or enabled sample; cause of empty response not established"
+  },
+  "exploratoryProbes": {
+    "additionalPublicVideo": {
+      "videoId": "H14bBuluwB8",
+      "masterOffOnly": true,
+      "playing": true,
+      "subtitleResponseStatus": 200,
+      "subtitleResponseBytes": 0,
+      "verdict": "incomplete; asynchronous checkbox assertion stopped before on sample"
+    },
+    "earlierAttempt": "Chrome context closed before off sample; excluded from passing evidence"
+  },
+  "productionArtifact": {
+    "version": "0.0.4",
+    "files": {
+      "assets/ui-McAdkP7W.css": {
+        "bytes": 2600,
+        "sha256": "706dc7e96c19623b841405b2da8edf7420f8dd84d07360537fa88ef7dc014ada"
+      },
+      "chunks/options-B9GXPm2P.js": {
+        "bytes": 2091,
+        "sha256": "84f29583abd75caca984913c733ddb96f36dedf35018921c93ebefe419db8b7a"
+      },
+      "chunks/popup-DUg5Y5I1.js": {
+        "bytes": 1008,
+        "sha256": "986d4450b4b7ba9f27f0e868044af07dfbc8e68b4d63fc1eb259579aeb3507c0"
+      },
+      "chunks/ui-8raowMw_.js": {
+        "bytes": 234788,
+        "sha256": "b67b2a4018177e1ddda1319febed8e8ab3cf7aebfb3eb862081c347b824411ac"
+      },
+      "content-scripts/youtube.js": {
+        "bytes": 18436,
+        "sha256": "110824278b698dbc2d7af39b7a170d34d87c0a5f174da9af0315343597b3787f"
+      },
+      "manifest.json": {
+        "bytes": 508,
+        "sha256": "15d51624ec4a7c90f934d206af91586fefbbaee038148db65d3c8febfd3c174f"
+      },
+      "options.html": {
+        "bytes": 535,
+        "sha256": "fe89165196634be8c18bd59edcd5d4bfbfd640842ce5b81051a1a120bdace938"
+      },
+      "popup.html": {
+        "bytes": 466,
+        "sha256": "72128324e4ca5558e9e3830bf40c7b48ba3ebcc2a5b9f84d079e3df3d6f9d4f9"
+      }
+    },
+    "javascriptFiles": 4,
+    "checks": [
+      "exact manifest",
+      "eight reviewed files",
+      "no test/dev material",
+      "local HTML/CSS resources",
+      "AST network/execution call scan"
+    ],
+    "limitations": "Static checks are guardrails, not proof; combine with source review and runtime tests."
+  },
+  "lockfileSha256": "08fc9867096a6d1453427b77b3fa8374c776c6162a02b1ccdb6f9244471ee530",
+  "archive": {
+    "path": "app/.output/project-freedom-0.0.4-chrome.zip",
+    "sha256": "787d63d8faff54bdefb05c06499e1d45050bdaad9a65db7346073635d532f192",
+    "files": 8,
+    "matchesAuditedBuild": true
+  },
+  "runtimeUnchanged": true,
+  "previousLiveObservations": "17 October observations remain in PHASE3_FOLLOWUP_EVIDENCE.json; navigation, playlist, Spanish and Shorts not rerun today",
+  "remaining": {
+    "technical": "actual live subtitle rendering in a context supplying caption data",
+    "human": [
+      "VoiceOver listening",
+      "physical Chrome install/toolbar and popup scaling",
+      "authorized populated home/subscriptions and account-specific safety variants"
+    ],
+    "owner": [
+      "publisher/maintainer",
+      "copyright/license",
+      "final name",
+      "contact/privacy URL",
+      "audience/countries/supported browser and OS scope",
+      "repository/distribution",
+      "youth/privacy review"
+    ]
+  },
+  "limitations": [
+    "Authored PCM/WebVTT fixture is not YouTube playback or live compatibility evidence.",
+    "Axe, keyboard and CDP do not establish VoiceOver usability.",
+    "Whole-page performance metrics include host/test work; no universal latency/leak guarantee.",
+    "Controlled traffic observation does not guarantee all browser/platform privacy.",
+    "Other age/account/region variants are unverified unless legitimately observed.",
+    "Linkless Shorts guide is deliberately unsupported.",
+    "Original uploaded research text is still unavailable."
+  ]
+}
